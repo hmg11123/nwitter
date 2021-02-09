@@ -5,8 +5,7 @@ import Home from "../router/Home";
 import EditProfile from "../router/EditProfile";
 import Profile from "../router/Profile";
 
-const AppRouter = () => {
- const [isLoggedIn, setIsLoggedIn] = useState(false);
+const AppRouter = ({ isLoggedIn }) => {
  return (
   <Router>
    <Switch>
