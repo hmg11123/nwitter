@@ -11,21 +11,30 @@ import EditProfile from "../router/EditProfile";
 import Profile from "../router/Profile";
 import Navigation from "./Navigation";
 
-const AppRouter = ({ isLoggedIn }) => {
+const AppRouter = ({ isLoggedIn, userObj }) => {
  return (
   <Router>
-   {isLoggedIn && <Navigation />}
+   {isLoggedIn && <Navigation userObj={userObj} />}
    <Switch>
     {isLoggedIn ? (
-     <>
+     <div
+      style={{
+       maxWidth: 890,
+       width: "100%",
+       margin: "0 auto",
+       marginTop: 80,
+       display: "flex",
+       justifyContent: "center",
+      }}
+     >
       <Route exact path="/">
-       <Home />
+       <Home userObj={userObj} />
       </Route>
       <Route exact path="/profile">
-       <Profile />
+       <Profile userObj={userObj} />
       </Route>
       {/* <Redirect from="*" to="/" /> */}
-     </>
+     </div>
     ) : (
      <>
       <Route exact path="/">
